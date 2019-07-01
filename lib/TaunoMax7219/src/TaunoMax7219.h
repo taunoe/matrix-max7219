@@ -13,15 +13,19 @@
 class TaunoMax7219
 {
     private:
+    int _ss_pin;
 
     public:
     // constructor
-    TaunoMax7219();
+    TaunoMax7219(const byte ss_pin);
 
     // deconstructor
     ~TaunoMax7219();
 
     // methods
+    void begin();
+    void transfer_CMD(uint8_t address, uint8_t value);
+    void transfer_DATA(uint8_t address, uint8_t value);
 };
 
 #endif
