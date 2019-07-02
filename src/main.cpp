@@ -46,15 +46,26 @@ void loop() {
    //my_matrix.test(500);
    my_matrix.clear();
 
- 
-     for (uint8_t i = 0; i < 9; i++)
+   for (uint8_t j = 1; j < 9; j++){
+      Serial.print("j="); Serial.println(j);
+      for (uint8_t i = 0; i <= 8; i++)
       {
-         my_matrix.transfer_DATA(rida, tulp);
-         tulp = tulp << 1;
-         delay(500);
+         Serial.print("j="); Serial.print(j);Serial.print(" i="); Serial.println(i);
+         if (i == 8)
+         {
+            my_matrix.transfer_DATA(j, 0);
+         }
+         else
+         {
+            my_matrix.transfer_DATA(j, tulp);
+            tulp = tulp << 1;
+            delay(500);
+         }
       }
-
       tulp = 1;
+   }
+   
+ /*   tulp = 1;
 
       for (uint8_t i = 0; i < 9; i++)
       {
@@ -62,7 +73,7 @@ void loop() {
          tulp = tulp << 1;
          delay(500);
       }
-
+*/
 
 }
 
