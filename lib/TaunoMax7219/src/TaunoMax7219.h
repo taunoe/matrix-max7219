@@ -27,8 +27,7 @@ class TaunoMax7219
     void begin();
     void test(uint16_t delay_value);
     void brightness(uint8_t value); // 0-15 0x0 - 0xF
-    void transfer_CMD(uint8_t address, uint8_t value);
-    void transfer_DATA(uint8_t address, uint8_t value);
+    void write_register(uint8_t address, uint8_t value);
     void clear(); // all off
 };
 

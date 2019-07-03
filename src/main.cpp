@@ -10,7 +10,7 @@
 TaunoMax7219 my_matrix(SS_PIN);
 
 
-void random_patern(int16_t delay_value){
+void random_patern(int16_t delay_value) {
    uint8_t row=0;
    //int i=0, ud=1; // Need signed numbers.
 
@@ -20,25 +20,21 @@ void random_patern(int16_t delay_value){
       if (i<0)   {ud=1 ;i=0;}
       if (row++>8) row=1;
      */
-      my_matrix.transfer_DATA(row, random(0,255));
+      my_matrix.write_register(row, random(0,255));
      // my_matrix.brightness(i>>4);
      delay(delay_value);
    }
 }
 
-void one_by_one(int16_t delay_value){
+void one_by_one(int16_t delay_value) {
    int tulp = 1;
 
-   for (uint8_t j = 1; j < 9; j++){
-      for (uint8_t i = 0; i <= 8; i++)
-      {
-         if (i == 8)
-         {
-            my_matrix.transfer_DATA(j, 0);
-         }
-         else
-         {
-            my_matrix.transfer_DATA(j, tulp);
+   for (uint8_t j = 1; j < 9; j++) {
+      for (uint8_t i = 0; i <= 8; i++) {
+         if (i == 8) {
+            my_matrix.write_register(j, 0);
+         } else {
+            my_matrix.write_register(j, tulp);
             tulp = tulp << 1;
             delay(delay_value);
          }
@@ -46,7 +42,6 @@ void one_by_one(int16_t delay_value){
       tulp = 1;
    }
 }
-
 
 
 void setup() {
@@ -67,16 +62,6 @@ void loop() {
    my_matrix.clear();
    one_by_one(300);
    
-   
- /*   tulp = 1;
-
-      for (uint8_t i = 0; i < 9; i++)
-      {
-         my_matrix.transfer_DATA(2, tulp);
-         tulp = tulp << 1;
-         delay(500);
-      }
-*/
 
 }
 
