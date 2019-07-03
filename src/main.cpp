@@ -11,15 +11,15 @@ TaunoMax7219 my_matrix(SS_PIN);
 
 
 void random_patern(int16_t delay_value) {
-   uint8_t row=0;
-   //int i=0, ud=1; // Need signed numbers.
+   uint8_t row = 0;
+   int i = 0, ud = 1; // Need signed numbers.
 
-   for(;;) {
-     /*  i += ud;
-      if (i>255) {ud=-1;i=255;}
-      if (i<0)   {ud=1 ;i=0;}
-      if (row++>8) row=1;
-     */
+   while(1) {
+       i += ud;
+      if (i > 255) { ud = -1; i = 255;}
+      if (i < 0)   { ud = 1 ; i = 0;}
+      if (row++ > 8) { row = 1;}
+     
       my_matrix.write_register(row, random(0,255));
      // my_matrix.brightness(i>>4);
      delay(delay_value);
@@ -55,12 +55,11 @@ void setup() {
 }
 
 void loop() {
-
-   //random_patern(10);
-   //my_matrix.test(500);
-
+   my_matrix.test(500);
    my_matrix.clear();
-   one_by_one(300);
+   random_patern(10);
+
+   //one_by_one(300);
    
 
 }
