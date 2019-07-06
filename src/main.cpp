@@ -9,6 +9,17 @@
 /* init matrix */
 TaunoMax7219 my_matrix(SS_PIN);
 
+byte matrix[8] = {
+   0b10000001, // 1
+   0b01000010, // 2
+   0b00100100, // 3
+   0b00011000, // 4
+   0b00011000, // 5
+   0b00100100, // 6
+   0b01000010, // 7
+   0b10000001  // 8
+};
+
 
 void random_patern(int16_t delay_value) {
    uint8_t row = 0;
@@ -50,18 +61,25 @@ void setup() {
   Serial.println("Debug MAX7219");
 
   my_matrix.begin();
-  my_matrix.brightness(3);
+  my_matrix.brightness(5);
 
 }
 
 void loop() {
-   my_matrix.test(500);
+   // my_matrix.test(500);
    my_matrix.clear();
-   random_patern(10);
+   // random_patern(10);
+   // one_by_one(300);
 
-   //one_by_one(300);
    
-
+   for (size_t i = 1; i < 9; i++)
+   {
+      my_matrix.write_register(i, matrix[i-1]);
+      delay(200);
+   }
+   
+   matrix[0] ^= 0b01010100; // biti vastupidiseks muutmine
+   matrix[1] |= 0b10101010; // biti kõrgeks seadmine
 }
 
 
