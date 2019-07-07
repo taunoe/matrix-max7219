@@ -2,6 +2,7 @@
  * https://tttapa.github.io/ESP8266/Chap10%20-%20Simple%20Web%20Server.html
  * https://circuits4you.com/2016/12/16/esp8266-web-server-html/
  * https://www.best-microcontroller-projects.com/max7219.html
+ * https://circuits4you.com/2018/02/04/esp8266-ajax-update-part-of-web-page-without-refreshing/
  * 
  */
 #include <Arduino.h>
