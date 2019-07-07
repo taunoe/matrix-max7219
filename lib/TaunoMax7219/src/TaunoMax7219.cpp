@@ -8,7 +8,7 @@
 /**
  * @param ss_pin
  */
-TaunoMax7219::TaunoMax7219(const byte ss_pin) {
+TaunoMax7219::TaunoMax7219(const uint8_t ss_pin) {
     pinMode(ss_pin, OUTPUT);
     
     _ss_pin = ss_pin;
@@ -39,7 +39,7 @@ void TaunoMax7219::begin() {
 /**
  * @param delay_value duration of test
  */
-void TaunoMax7219::test(uint16_t delay_value) {
+void TaunoMax7219::test(const uint16_t delay_value) {
     write_register(MAX7219_TEST_REG, 0x01);     // Display test mode ON
     delay(delay_value);  
     write_register(MAX7219_TEST_REG, 0x00); // Display test mode OFF
@@ -48,7 +48,7 @@ void TaunoMax7219::test(uint16_t delay_value) {
 /**
  * @param value brightness value
  */
-void TaunoMax7219::brightness(uint8_t value) {
+void TaunoMax7219::brightness(const uint8_t value) {
     write_register(MAX7219_BRIGHTNESS_REG, value);  // 0-15, 0x00 - 0x0f
 }
 
@@ -56,7 +56,7 @@ void TaunoMax7219::brightness(uint8_t value) {
  * @address register address
  * @value 
  */
-void TaunoMax7219::write_register(uint8_t address, uint8_t value) {  
+void TaunoMax7219::write_register(const uint8_t address, const uint8_t value) {  
   digitalWrite(_ss_pin, LOW);   
   SPI.transfer(address);        // Send address
   SPI.transfer(value);          // Send the value
