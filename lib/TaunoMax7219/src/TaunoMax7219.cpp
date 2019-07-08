@@ -1,6 +1,11 @@
-/**
- * @author Tauno Erik
- */
+/************************************************************
+ * Project:     Matrix MAX7219
+ * File:        TaunoMax7219.cpp
+ * Author:      Tauno Erik
+ * Created:     08.07.2019
+ * Description:
+ *
+ **************************************************************/
 #include "Arduino.h"
 #include <SPI.h>
 #include "TaunoMax7219.h"

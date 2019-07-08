@@ -1,3 +1,12 @@
+/************************************************************
+ * Project:     Matrix MAX7219
+ * File:        main.cpp
+ * Author:      Tauno Erik
+ * Created:     08.07.2019
+ * Description:
+ *
+ **************************************************************/
+
 /*
  * https://tttapa.github.io/ESP8266/Chap10%20-%20Simple%20Web%20Server.html
  * https://circuits4you.com/2016/12/16/esp8266-web-server-html/

@@ -1,3 +1,11 @@
+/************************************************************
+ * Project:     Matrix MAX7219
+ * File:        root.h
+ * Author:      Tauno Erik
+ * Created:     08.07.2019
+ * Description: html index file
+ *
+ **************************************************************/
 const char web_index[] PROGMEM = R"=====(
 <!doctype html>
 <html lang="en">
@@ -6,20 +14,13 @@ const char web_index[] PROGMEM = R"=====(
   <title>Matrix</title>
   <meta name="description" content="Matrix">
   <meta name="author" content="Tauno Erik">
-  <style>
-html { font-size: 62.5%; box-sizing: border-box;}
-
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
-}
-
-.calculator {
-  border: 1px solid #ccc;
-  width: 100%;
-  background-color: #ddd;
-}
+<style>
+html{font-size:62.5%; box-sizing:border-box; background-color:#a1a1a1;}
+*, *::before, *::after{margin:0; padding:0; box-sizing:inherit;}
+.header, .footer{text-align: center; width:100%; margin:0;}
+h1{color:#ddd;font-size:3em;font-family:"Courier New", "Arial", sans-serif;}
+p{color:#ddd;}
+.calculator{border:1px solid #a1a1a1; width:100%; background-color:#a1a1a1;}
 
 button {
   height: 80px;
@@ -27,26 +28,25 @@ button {
   border-radius: 3px;
   border: 1px solid #c4c4c4;
   font-size: 3rem;
-  color: #333;
+  color: #a1a1a1;
+  outline:none;
 }
 
-button:hover { background-color: #ABFF00;}
-button:active {border:0;}
+button:hover{background-color:#ABFF00; outline:none;}
+button:active{outline:none;}
 
 .calculator-keys {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
-  grid-gap: 2px;
-  padding: 2px;
+  grid-gap: 5px;
+  padding: 5px;
 }
 
-.on {
-  background-color: #ABFF00;
-  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #304701 0 -1px 9px, #89FF00 0 2px 12px;
-}
+.on{background-color:#ABFF00; box-shadow:rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #304701 0 -1px 9px, #89FF00 0 2px 12px; outline:none; border:0;}
   </style>
 </head>
 <body>
+<div class="header"><h1>Matrix</h1></div>
 <div class="calculator">
     <div class="calculator-keys">
       <button id="11" onclick="sendData(11)">11</button>
@@ -122,6 +122,7 @@ button:active {border:0;}
       <button id="88" onclick="sendData(88)">88</button>
     </div>
   </div>
+  <div class="footer"><p>08. juuli 2019 AD Tauno Erik</p></div>
 <script>
 function sendData(led) {
   var xhttp = new XMLHttpRequest();

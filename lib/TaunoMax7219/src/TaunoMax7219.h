@@ -1,3 +1,11 @@
+/************************************************************
+ * Project:     Matrix MAX7219
+ * File:        TaunoMax7219.h
+ * Author:      Tauno Erik
+ * Created:     08.07.2019
+ * Description:
+ *
+ **************************************************************/
 #ifndef TaunoMax7219_h
 #define TaunoMax7219_h
 
